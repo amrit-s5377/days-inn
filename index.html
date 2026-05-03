@@ -1,1232 +1,510 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Days Inn Bismarck — Official Property Page</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nunito+Sans:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- LOADER -->
-    <div id="loader">
-      <div class="ld-wordmark" id="ldLogo">Days <span>Inn</span></div>
-      <div class="ld-track"><div class="ld-fill" id="ldFill"></div></div>
-      <div class="ld-sub">Bismarck, North Dakota</div>
-    </div>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Days Inn Bismarck — Official Property Page</title>
 
-    <!-- MOB MENU -->
-    <div class="mob-menu" id="mobMenu">
-      <a
-        href="#"
-        onclick="
-          goHome();
-          return false;
-        "
-        >Home</a
-      >
-      <a
-        href="#"
-        onclick="
-          navScrollTo('rooms');
-          return false;
-        "
-        >Rooms</a
-      >
-      <a
-        href="#"
-        onclick="
-          navScrollTo('amenities');
-          return false;
-        "
-        >Amenities</a
-      >
-      <a
-        href="#"
-        onclick="
-          navScrollTo('location');
-          return false;
-        "
-        >Location</a
-      >
-      <a
-        href="#"
-        onclick="
-          navScrollTo('contact');
-          return false;
-        "
-        >Contact</a
-      >
-      <button
-        class="mob-res"
-        onclick="
-          window.open(
-            'https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview',
-            '_blank',
-          );
-          closeMenu();
-        "
-      >
-        Reserve Now
-      </button>
-    </div>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
-    <!-- NAV -->
-    <nav id="mainNav">
-      <a
-        href="#"
-        class="nav-logo"
-        onclick="
-          goHome();
-          return false;
-        "
-      >
-        Days <span>Inn</span>
-        <span class="nav-logo-sub">Bismarck · North Dakota</span>
-      </a>
-      <ul class="nav-links">
-        <li>
-          <a
-            href="#"
-            onclick="
-              goHome();
-              return false;
-            "
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            onclick="
-              navScrollTo('rooms');
-              return false;
-            "
-            >Rooms</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            onclick="
-              navScrollTo('amenities');
-              return false;
-            "
-            >Amenities</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            onclick="
-              navScrollTo('location');
-              return false;
-            "
-            >Location</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            onclick="
-              navScrollTo('contact');
-              return false;
-            "
-            >Contact</a
-          >
-        </li>
-      </ul>
-      <button
-        class="nav-reserve"
-        onclick="
-          window.open(
-            'https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview',
-            '_blank',
-          )
-        "
-      >
-        Reserve
-      </button>
-      <button class="nav-ham" id="navHam">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <!-- ═══════════════════════ LANDING PAGE ═══════════════════════ -->
-    <div class="pg active" id="landingPg">
-      <!-- HERO -->
-      <section class="hero" id="heroSec">
-        <div class="hero-bg" id="heroBg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-vignette"></div>
-        <div class="hero-inner">
-          <div class="hero-badge" id="hBadge">
-            <div class="hero-badge-dot"></div>
-            <span>Now Accepting Reservations</span>
-          </div>
-          <h1 class="hero-title" id="hTitle">
-            Welcome to<br /><em>Days Inn</em> Bismarck
-          </h1>
-          <p class="hero-sub" id="hSub">
-            Your comfortable, convenient home away from home in the heart of
-            North Dakota's capital city — a Wyndham Hotels & Resorts property.
-          </p>
-          <div class="hero-btns" id="hBtns">
-            <a
-              href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview"
-              target="_blank"
-              rel="noopener"
-              class="btn-gold"
-            >
-              <svg
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M2 8h12M9 3l5 5-5 5" />
-              </svg>
-              Reserve Here
-            </a>
-            <button class="btn-outline-white" onclick="openDetail()">
-              Explore Property
-            </button>
-          </div>
-        </div>
-        <div class="hero-scroll" id="hScroll">
-          <div class="hero-scroll-bar"></div>
-          <span>Explore</span>
-        </div>
-      </section>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
 
-      <!-- FACTS STRIP -->
-      <div class="facts-strip" id="factStrip">
-        <div class="fact-item">
-          <span class="fact-val">100+</span
-          ><span class="fact-lbl">Guest Rooms</span>
-        </div>
-        <div class="fact-item">
-          <span class="fact-val">4.1★</span
-          ><span class="fact-lbl">Guest Rating</span>
-        </div>
-        <div class="fact-item">
-          <span class="fact-val">24/7</span
-          ><span class="fact-lbl">Front Desk</span>
-        </div>
-        <div class="fact-item">
-          <span class="fact-val">Free</span
-          ><span class="fact-lbl">Breakfast Included</span>
-        </div>
-        <div class="fact-item">
-          <span class="fact-val">Wi-Fi</span
-          ><span class="fact-lbl">Complimentary</span>
-        </div>
-      </div>
+  <!-- ═══════ LOADER ═══════ -->
+  <div id="loader">
+    <div class="ld-wordmark" id="ldLogo">Days <span>Inn</span></div>
+    <div class="ld-track"><div class="ld-fill" id="ldFill"></div></div>
+    <div class="ld-sub">Bismarck, North Dakota</div>
+  </div>
 
-      <!-- ABOUT -->
-      <section class="sec about-sec" id="about">
-        <div class="about-grid">
-          <div class="about-text">
-            <div class="s-eyebrow reveal">About the Property</div>
-            <h2 class="s-heading reveal">
-              Comfort Meets<br /><em>Convenience</em>
-            </h2>
-            <p class="reveal">
-              Days Inn by Wyndham Bismarck offers warm, welcoming hospitality in
-              one of North Dakota's most dynamic cities. Conveniently situated
-              near I-94, our property provides effortless access to the State
-              Capitol, the vibrant Downtown Bismarck district, and the Missouri
-              River waterfront.
-            </p>
-            <p class="reveal">
-              Whether you're travelling for business or leisure, our team is
-              dedicated to making your stay as comfortable and memorable as
-              possible. Every room is designed with your rest in mind — clean,
-              well-appointed, and genuinely inviting.
-            </p>
-            <a
-              href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview"
-              target="_blank"
-              class="about-link reveal"
-            >
-              Official Wyndham Listing →
-            </a>
-          </div>
-          <div class="about-imgs reveal-r">
-            <img
-              src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80"
-              alt="Guest Room"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80"
-              alt="Hotel Exterior"
-            />
-          </div>
-        </div>
-      </section>
+  <!-- ═══════ MOBILE MENU ═══════ -->
+  <div class="mob-menu" id="mobMenu">
+    <a href="#" onclick="goHome();return false;">Home</a>
+    <a href="#" onclick="navScrollTo('rooms');return false;">Rooms</a>
+    <a href="#" onclick="navScrollTo('amenities');return false;">Amenities</a>
+    <a href="#" onclick="navScrollTo('location');return false;">Location</a>
+    <a href="#" onclick="navScrollTo('contact');return false;">Contact</a>
+    <button class="mob-res" onclick="window.open('https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview','_blank');closeMenu();">Reserve Now</button>
+  </div>
 
-      <!-- ROOMS -->
-      <section class="sec rooms-sec" id="rooms">
-        <div class="rooms-head">
-          <div>
-            <div class="s-eyebrow reveal">Accommodations</div>
-            <h2 class="s-heading reveal">Our Rooms &amp; <em>Suites</em></h2>
-          </div>
+  <!-- ═══════ NAV ═══════ -->
+  <nav id="mainNav">
+    <a href="#" class="nav-logo" onclick="goHome();return false;">
+      Days <span>Inn</span>
+      <span class="nav-logo-sub">Bismarck · North Dakota</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="goHome();return false;">Home</a></li>
+      <li><a href="#" onclick="navScrollTo('rooms');return false;">Rooms</a></li>
+      <li><a href="#" onclick="navScrollTo('amenities');return false;">Amenities</a></li>
+      <li><a href="#" onclick="navScrollTo('location');return false;">Location</a></li>
+      <li><a href="#" onclick="navScrollTo('contact');return false;">Contact</a></li>
+    </ul>
+    <button class="nav-reserve" onclick="window.open('https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview','_blank')">Reserve</button>
+    <button class="nav-ham" id="navHam"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════
+       LANDING PAGE
+  ══════════════════════════════════════════════════ -->
+  <div class="pg active" id="landingPg">
+
+    <!-- HERO -->
+    <section class="hero" id="heroSec">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-vignette"></div>
+      <div class="hero-inner">
+        <div class="hero-badge" id="hBadge">
+          <div class="hero-badge-dot"></div>
+          <span>Now Accepting Reservations</span>
+        </div>
+        <h1 class="hero-title" id="hTitle">Welcome to<br><em>Days Inn</em> Bismarck</h1>
+        <p class="hero-sub" id="hSub">Your comfortable, convenient home away from home in the heart of North Dakota's capital city — a Wyndham Hotels &amp; Resorts property.</p>
+        <div class="hero-btns" id="hBtns">
           <a
             href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview"
-            target="_blank"
-            class="rooms-see-all reveal"
-            >Book on Wyndham →</a
-          >
-        </div>
-        <div class="rooms-grid">
-          <div class="room-card reveal-sc">
-            <div class="room-card-img">
-              <img
-                src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80"
-                alt="Standard Room"
-              />
-            </div>
-            <div class="room-card-body">
-              <div class="room-type">Standard</div>
-              <div class="room-name">Standard King Room</div>
-              <div class="room-desc">
-                A spacious king room with plush bedding, flat-screen TV, and
-                complimentary Wi-Fi. Perfect for the solo traveller or couple.
-              </div>
-              <div class="room-price">
-                <div class="room-price-num"><small>From</small>$89</div>
-                <button
-                  class="room-book"
-                  onclick="
-                    window.open(
-                      'https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview',
-                      '_blank',
-                    )
-                  "
-                >
-                  Book Now
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="room-card reveal-sc">
-            <div class="room-card-img">
-              <img
-                src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=700&q=80"
-                alt="Double Room"
-              />
-            </div>
-            <div class="room-card-body">
-              <div class="room-type">Family</div>
-              <div class="room-name">Double Queen Room</div>
-              <div class="room-desc">
-                Two queen beds with ample space for families or groups. Includes
-                a work desk, refrigerator, and microwave.
-              </div>
-              <div class="room-price">
-                <div class="room-price-num"><small>From</small>$99</div>
-                <button
-                  class="room-book"
-                  onclick="
-                    window.open(
-                      'https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview',
-                      '_blank',
-                    )
-                  "
-                >
-                  Book Now
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="room-card reveal-sc">
-            <div class="room-card-img">
-              <img
-                src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=700&q=80"
-                alt="Suite"
-              />
-            </div>
-            <div class="room-card-body">
-              <div class="room-type">Suite</div>
-              <div class="room-name">Deluxe King Suite</div>
-              <div class="room-desc">
-                Our best room — a separate sitting area, premium bedding, and an
-                upgraded bath. Ideal for extended stays or a little extra
-                comfort.
-              </div>
-              <div class="room-price">
-                <div class="room-price-num"><small>From</small>$129</div>
-                <button
-                  class="room-book"
-                  onclick="
-                    window.open(
-                      'https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview',
-                      '_blank',
-                    )
-                  "
-                >
-                  Book Now
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PARALLAX BAND -->
-      <div class="par-band" id="parSec">
-        <div class="par-bg" id="parBg"></div>
-        <div class="par-content">
-          <div
-            class="s-eyebrow reveal"
-            style="justify-content: center; color: var(--gold-l)"
-          >
-            The Wyndham Promise
-          </div>
-          <h2 class="s-heading reveal">
-            "A great stay <em>every time</em>,<br />at every price point."
-          </h2>
-          <p class="reveal">
-            Days Inn by Wyndham is trusted by millions of travellers each year.
-            Free breakfast, friendly staff, and a clean comfortable room —
-            guaranteed.
-          </p>
-        </div>
-      </div>
-
-      <!-- AMENITIES -->
-      <section class="sec amen-sec" id="amenities">
-        <div class="s-eyebrow reveal">Facilities</div>
-        <h2 class="s-heading reveal">Everything You <em>Need</em></h2>
-        <div class="amen-grid">
-          <div class="amen-tile reveal">
-            <div class="amen-icon">☀</div>
-            <div class="amen-name">Free Hot Breakfast</div>
-            <div class="amen-text">
-              Start each morning with our complimentary hot breakfast — eggs,
-              waffles, pastries, fresh fruit, and more.
-            </div>
-          </div>
-          <div class="amen-tile reveal">
-            <div class="amen-icon">⚡</div>
-            <div class="amen-name">High-Speed Wi-Fi</div>
-            <div class="amen-text">
-              Complimentary high-speed internet throughout the property — strong
-              signal in every room and common area.
-            </div>
-          </div>
-          <div class="amen-tile reveal">
-            <div class="amen-icon">◉</div>
-            <div class="amen-name">Indoor Pool</div>
-            <div class="amen-text">
-              Relax in our seasonal outdoor pool after a long day of travel or
-              meetings. Open during summer months.
-            </div>
-          </div>
-          <div class="amen-tile reveal">
-            <div class="amen-icon">☽</div>
-            <div class="amen-name">24-Hour Front Desk</div>
-            <div class="amen-text">
-              Our friendly front desk team is available around the clock for
-              check-in, local tips, and any request.
-            </div>
-          </div>
-          <div class="amen-tile reveal">
-            <div class="amen-icon">◻</div>
-            <div class="amen-name">Business Center</div>
-            <div class="amen-text">
-              Computers, printing, and a quiet space for work. Ideal for
-              business travellers who need to stay productive.
-            </div>
-          </div>
-          <div class="amen-tile reveal">
-            <div class="amen-icon">P</div>
-            <div class="amen-name">Free Parking</div>
-            <div class="amen-text">
-              Complimentary on-site parking for all guests — truck and
-              RV-friendly spaces available on request.
-            </div>
-          </div>
-          <div class="amen-tile reveal">
-            <div class="amen-icon">♿</div>
-            <div class="amen-name">ADA Accessible</div>
-            <div class="amen-text">
-              Fully accessible rooms and facilities designed to accommodate
-              guests with mobility requirements.
-            </div>
-          </div>
-          <div class="amen-tile reveal">
-            <div class="amen-icon">🐾</div>
-            <div class="amen-name">Pet Friendly</div>
-            <div class="amen-text">
-              Travelling with a pet? We welcome well-behaved dogs and cats.
-              Enquire at booking for details and fees.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- LOCATION -->
-      <section class="sec loc-sec" id="location">
-        <div class="loc-grid">
-          <div>
-            <div class="s-eyebrow reveal">Find Us</div>
-            <h2 class="s-heading reveal">At the Heart of <em>Bismarck</em></h2>
-            <p class="reveal">
-              Located at 1300 East Capitol Avenue, Bismarck, ND 58501 — minutes
-              from the State Capitol and major highways.
-            </p>
-            <div class="loc-detail-list">
-              <div class="loc-detail-item reveal">
-                <strong>Address</strong>1300 E Capitol Ave, Bismarck, ND 58501
-              </div>
-              <div class="loc-detail-item reveal">
-                <strong>Phone</strong>(701) 223-9151
-              </div>
-              <div class="loc-detail-item reveal">
-                <strong>State Capitol</strong>3 minutes by car
-              </div>
-              <div class="loc-detail-item reveal">
-                <strong>Airport</strong>Bismarck Airport — 8 min drive
-              </div>
-              <div class="loc-detail-item reveal">
-                <strong>Missouri River</strong>5 min drive to riverfront parks
-              </div>
-              <div class="loc-detail-item reveal">
-                <strong>Highway</strong>Direct access from I-94
-              </div>
-            </div>
-          </div>
-          <div class="loc-map reveal-r">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.1!2d-100.773!3d46.808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52cf6c4f8c8c6f8d%3A0x1!2sDays+Inn+Bismarck!5e0!3m2!1sen!2sus!4v1"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Days Inn Bismarck Location"
-            >
-            </iframe>
-          </div>
-        </div>
-      </section>
-
-      <!-- TESTIMONIALS -->
-      <section class="sec test-sec">
-        <div class="s-eyebrow reveal">Guest Reviews</div>
-        <h2 class="s-heading reveal">What Our Guests <em>Say</em></h2>
-        <div class="test-grid">
-          <div class="test-card reveal">
-            <div class="test-stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span
-              ><span>★</span>
-            </div>
-            <div class="test-quote">
-              "Clean, comfortable, and the free breakfast was a real bonus.
-              Staff were incredibly helpful with directions around Bismarck.
-              Will definitely stay again on our next trip through North Dakota."
-            </div>
-            <div class="test-author">— Sarah M. · Google Reviews</div>
-          </div>
-          <div class="test-card reveal">
-            <div class="test-stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span
-              ><span>★</span>
-            </div>
-            <div class="test-quote">
-              "Excellent value for the price. The room was spacious, the bed was
-              comfortable, and the location is perfect — easy highway access and
-              close to everything we needed."
-            </div>
-            <div class="test-author">— James T. · TripAdvisor</div>
-          </div>
-          <div class="test-card reveal">
-            <div class="test-stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span
-              ><span>☆</span>
-            </div>
-            <div class="test-quote">
-              "Stayed here for a work trip and was pleasantly surprised.
-              Business center worked great, Wi-Fi was fast, and the front desk
-              was available whenever I needed anything."
-            </div>
-            <div class="test-author">— Mark L. · Wyndham Reviews</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA BAND -->
-      <section class="cta-sec">
-        <div class="cta-text">
-          <h2 class="s-heading reveal">Ready to <em>Book?</em></h2>
-          <p class="reveal">
-            Reserve directly through Wyndham for the best available rate and
-            Rewards points.
-          </p>
-        </div>
-        <div class="cta-actions reveal">
-          <div class="cta-phone">
-            <small>Call Us Directly</small>(701) 223-9151
-          </div>
-          <a
-            href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview"
-            target="_blank"
-            rel="noopener"
+            target="_blank" rel="noopener"
             class="btn-gold"
           >
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              style="width: 14px; height: 14px"
-            >
-              <path d="M2 8h12M9 3l5 5-5 5" />
-            </svg>
-            Reserve on Wyndham
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            Reserve Here
+          </a>
+          <button class="btn-outline-white" onclick="openDetail()">Explore Property</button>
+        </div>
+      </div>
+      <div class="hero-scroll" id="hScroll">
+        <div class="hero-scroll-bar"></div>
+        <span>Explore</span>
+      </div>
+    </section>
+
+    <!-- FACTS STRIP -->
+    <div class="facts-strip" id="factStrip">
+      <div class="fact-item"><span class="fact-val">100+</span><span class="fact-lbl">Guest Rooms</span></div>
+      <div class="fact-item"><span class="fact-val">4.1★</span><span class="fact-lbl">Guest Rating</span></div>
+      <div class="fact-item"><span class="fact-val">24/7</span><span class="fact-lbl">Front Desk</span></div>
+      <div class="fact-item"><span class="fact-val">Free</span><span class="fact-lbl">Breakfast Included</span></div>
+      <div class="fact-item"><span class="fact-val">Wi-Fi</span><span class="fact-lbl">Complimentary</span></div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="sec about-sec" id="about">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="s-eyebrow reveal">About the Property</div>
+          <h2 class="s-heading reveal">Comfort Meets<br><em>Convenience</em></h2>
+          <p class="reveal">Days Inn by Wyndham Bismarck offers warm, welcoming hospitality in one of North Dakota's most dynamic cities. Conveniently situated near I-94, our property provides effortless access to the State Capitol, the vibrant Downtown Bismarck district, and the Missouri River waterfront.</p>
+          <p class="reveal">Whether you're travelling for business or leisure, our team is dedicated to making your stay as comfortable and memorable as possible. Every room is designed with your rest in mind — clean, well-appointed, and genuinely inviting.</p>
+          <a href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview" target="_blank" rel="noopener" class="about-link reveal">
+            Official Wyndham Listing →
           </a>
         </div>
-      </section>
+        <div class="about-imgs reveal-r">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80" alt="Guest Room" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80" alt="Hotel Exterior" loading="lazy">
+        </div>
+      </div>
+    </section>
 
-      <!-- FOOTER -->
-      <footer id="contact">
-        <div class="foot-top">
-          <div class="foot-brand">
-            <div class="foot-logo">Days <span>Inn</span></div>
-            <div class="foot-logo-sub">by Wyndham · Bismarck, ND</div>
-            <p>
-              1300 E Capitol Ave<br />Bismarck, ND 58501<br />United States<br /><br />(701)
-              223-9151<br />bismarck@daysinn.com
-            </p>
-          </div>
-          <div class="foot-col">
-            <h5>Stay</h5>
-            <ul>
-              <li>
-                <a
-                  href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview"
-                  target="_blank"
-                  >Book a Room</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onclick="
-                    navScrollTo('rooms');
-                    return false;
-                  "
-                  >Rooms & Suites</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onclick="
-                    navScrollTo('amenities');
-                    return false;
-                  "
-                  >Amenities</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onclick="
-                    openDetail();
-                    return false;
-                  "
-                  >Property Details</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="foot-col">
-            <h5>Explore</h5>
-            <ul>
-              <li>
-                <a
-                  href="#"
-                  onclick="
-                    navScrollTo('location');
-                    return false;
-                  "
-                  >Location & Map</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.wyndhamhotels.com/wyndham-rewards"
-                  target="_blank"
-                  >Wyndham Rewards</a
-                >
-              </li>
-              <li>
-                <a href="https://www.wyndhamhotels.com" target="_blank"
-                  >Wyndham Hotels</a
-                >
-              </li>
-              <li>
-                <a href="https://www.bismarcknd.gov" target="_blank"
-                  >Visit Bismarck</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="foot-col">
-            <h5>Policies</h5>
-            <ul>
-              <li><a href="#">Check-in: 3:00 PM</a></li>
-              <li><a href="#">Check-out: 11:00 AM</a></li>
-              <li><a href="#">Pet Policy</a></li>
-              <li><a href="#">Cancellation</a></li>
-            </ul>
+    <!-- ROOMS -->
+    <section class="sec rooms-sec" id="rooms">
+      <div class="rooms-head">
+        <div>
+          <div class="s-eyebrow reveal">Accommodations</div>
+          <h2 class="s-heading reveal">Our Rooms &amp; <em>Suites</em></h2>
+        </div>
+        <a href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview" target="_blank" rel="noopener" class="rooms-see-all reveal">Book on Wyndham →</a>
+      </div>
+      <div class="rooms-grid">
+        <div class="room-card reveal-sc">
+          <div class="room-card-img"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Standard King Room" loading="lazy"></div>
+          <div class="room-card-body">
+            <div class="room-type">Standard</div>
+            <div class="room-name">Standard King Room</div>
+            <div class="room-desc">A spacious king room with plush bedding, flat-screen TV, and complimentary Wi-Fi. Perfect for the solo traveller or couple.</div>
+            <div class="room-price">
+              <div class="room-price-num"><small>From</small>$89</div>
+              <button class="room-book" onclick="window.open('https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview','_blank')">Book Now</button>
+            </div>
           </div>
         </div>
-        <div class="foot-bottom">
-          <span class="foot-copy"
-            >© 2024 Days Inn by Wyndham · Bismarck, ND. A Wyndham Hotels &
-            Resorts Property.</span
+        <div class="room-card reveal-sc">
+          <div class="room-card-img"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=700&q=80" alt="Double Queen Room" loading="lazy"></div>
+          <div class="room-card-body">
+            <div class="room-type">Family</div>
+            <div class="room-name">Double Queen Room</div>
+            <div class="room-desc">Two queen beds with ample space for families or groups. Includes a work desk, refrigerator, and microwave.</div>
+            <div class="room-price">
+              <div class="room-price-num"><small>From</small>$99</div>
+              <button class="room-book" onclick="window.open('https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview','_blank')">Book Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="room-card reveal-sc">
+          <div class="room-card-img"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=700&q=80" alt="Deluxe King Suite" loading="lazy"></div>
+          <div class="room-card-body">
+            <div class="room-type">Suite</div>
+            <div class="room-name">Deluxe King Suite</div>
+            <div class="room-desc">Our best room — a separate sitting area, premium bedding, and an upgraded bath. Ideal for extended stays or a little extra comfort.</div>
+            <div class="room-price">
+              <div class="room-price-num"><small>From</small>$129</div>
+              <button class="room-book" onclick="window.open('https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview','_blank')">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARALLAX BAND -->
+    <div class="par-band" id="parSec">
+      <div class="par-bg" id="parBg"></div>
+      <div class="par-content">
+        <div class="s-eyebrow reveal" style="justify-content:center;color:var(--gold-l);">The Wyndham Promise</div>
+        <h2 class="s-heading reveal">"A great stay <em>every time</em>,<br>at every price point."</h2>
+        <p class="reveal">Days Inn by Wyndham is trusted by millions of travellers each year. Free breakfast, friendly staff, and a clean comfortable room — guaranteed.</p>
+      </div>
+    </div>
+
+    <!-- AMENITIES -->
+    <section class="sec amen-sec" id="amenities">
+      <div class="s-eyebrow reveal">Facilities</div>
+      <h2 class="s-heading reveal">Everything You <em>Need</em></h2>
+      <div class="amen-grid">
+        <div class="amen-tile reveal">
+          <div class="amen-icon">☀</div>
+          <div class="amen-name">Free Hot Breakfast</div>
+          <div class="amen-text">Start each morning with our complimentary hot breakfast — eggs, waffles, pastries, fresh fruit, and more.</div>
+        </div>
+        <div class="amen-tile reveal">
+          <div class="amen-icon">⚡</div>
+          <div class="amen-name">High-Speed Wi-Fi</div>
+          <div class="amen-text">Complimentary high-speed internet throughout the property — strong signal in every room and common area.</div>
+        </div>
+        <div class="amen-tile reveal">
+          <div class="amen-icon">◉</div>
+          <div class="amen-name">Outdoor Pool</div>
+          <div class="amen-text">Relax in our seasonal outdoor pool after a long day of travel or meetings. Open during summer months.</div>
+        </div>
+        <div class="amen-tile reveal">
+          <div class="amen-icon">☽</div>
+          <div class="amen-name">24-Hour Front Desk</div>
+          <div class="amen-text">Our friendly front desk team is available around the clock for check-in, local tips, and any request.</div>
+        </div>
+        <div class="amen-tile reveal">
+          <div class="amen-icon">◻</div>
+          <div class="amen-name">Business Center</div>
+          <div class="amen-text">Computers, printing, and a quiet space for work. Ideal for business travellers who need to stay productive.</div>
+        </div>
+        <div class="amen-tile reveal">
+          <div class="amen-icon">P</div>
+          <div class="amen-name">Free Parking</div>
+          <div class="amen-text">Complimentary on-site parking for all guests — truck and RV-friendly spaces available on request.</div>
+        </div>
+        <div class="amen-tile reveal">
+          <div class="amen-icon">♿</div>
+          <div class="amen-name">ADA Accessible</div>
+          <div class="amen-text">Fully accessible rooms and facilities designed to accommodate guests with mobility requirements.</div>
+        </div>
+        <div class="amen-tile reveal">
+          <div class="amen-icon">🐾</div>
+          <div class="amen-name">Pet Friendly</div>
+          <div class="amen-text">Travelling with a pet? We welcome well-behaved dogs and cats. Enquire at booking for details and fees.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="sec loc-sec" id="location">
+      <div class="loc-grid">
+        <div>
+          <div class="s-eyebrow reveal">Find Us</div>
+          <h2 class="s-heading reveal">At the Heart of <em>Bismarck</em></h2>
+          <p class="reveal">Located at 1300 East Capitol Avenue, Bismarck, ND 58501 — minutes from the State Capitol and major highways.</p>
+          <div class="loc-detail-list">
+            <div class="loc-detail-item reveal"><strong>Address</strong>1300 E Capitol Ave, Bismarck, ND 58501</div>
+            <div class="loc-detail-item reveal"><strong>Phone</strong>(701) 223-9151</div>
+            <div class="loc-detail-item reveal"><strong>State Capitol</strong>3 minutes by car</div>
+            <div class="loc-detail-item reveal"><strong>Airport</strong>Bismarck Airport — 8 min drive</div>
+            <div class="loc-detail-item reveal"><strong>Missouri River</strong>5 min drive to riverfront parks</div>
+            <div class="loc-detail-item reveal"><strong>Highway</strong>Direct access from I-94</div>
+          </div>
+        </div>
+        <div class="loc-map reveal-r">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.1!2d-100.773!3d46.808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52cf6c4f8c8c6f8d%3A0x1!2sDays+Inn+Bismarck!5e0!3m2!1sen!2sus!4v1"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Days Inn Bismarck Location">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="sec test-sec">
+      <div class="s-eyebrow reveal">Guest Reviews</div>
+      <h2 class="s-heading reveal">What Our Guests <em>Say</em></h2>
+      <div class="test-grid">
+        <div class="test-card reveal">
+          <div class="test-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="test-quote">"Clean, comfortable, and the free breakfast was a real bonus. Staff were incredibly helpful with directions around Bismarck. Will definitely stay again on our next trip through North Dakota."</div>
+          <div class="test-author">— Sarah M. · Google Reviews</div>
+        </div>
+        <div class="test-card reveal">
+          <div class="test-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <div class="test-quote">"Excellent value for the price. The room was spacious, the bed was comfortable, and the location is perfect — easy highway access and close to everything we needed."</div>
+          <div class="test-author">— James T. · TripAdvisor</div>
+        </div>
+        <div class="test-card reveal">
+          <div class="test-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span></div>
+          <div class="test-quote">"Stayed here for a work trip and was pleasantly surprised. Business center worked great, Wi-Fi was fast, and the front desk was available whenever I needed anything."</div>
+          <div class="test-author">— Mark L. · Wyndham Reviews</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-sec">
+      <div class="cta-text">
+        <h2 class="s-heading reveal">Ready to <em>Book?</em></h2>
+        <p class="reveal">Reserve directly through Wyndham for the best available rate and Rewards points.</p>
+      </div>
+      <div class="cta-actions reveal">
+        <div class="cta-phone"><small>Call Us Directly</small>(701) 223-9151</div>
+        <a
+          href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview"
+          target="_blank" rel="noopener"
+          class="btn-gold"
+        >
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" style="width:14px;height:14px"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+          Reserve on Wyndham
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <div class="foot-logo">Days <span>Inn</span></div>
+          <div class="foot-logo-sub">by Wyndham · Bismarck, ND</div>
+          <p>1300 E Capitol Ave<br>Bismarck, ND 58501<br>United States<br><br>(701) 223-9151<br>bismarck@daysinn.com</p>
+        </div>
+        <div class="foot-col">
+          <h5>Stay</h5>
+          <ul>
+            <li><a href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview" target="_blank" rel="noopener">Book a Room</a></li>
+            <li><a href="#" onclick="navScrollTo('rooms');return false;">Rooms &amp; Suites</a></li>
+            <li><a href="#" onclick="navScrollTo('amenities');return false;">Amenities</a></li>
+            <li><a href="#" onclick="openDetail();return false;">Property Details</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="#" onclick="navScrollTo('location');return false;">Location &amp; Map</a></li>
+            <li><a href="https://www.wyndhamhotels.com/wyndham-rewards" target="_blank" rel="noopener">Wyndham Rewards</a></li>
+            <li><a href="https://www.wyndhamhotels.com" target="_blank" rel="noopener">Wyndham Hotels</a></li>
+            <li><a href="https://www.bismarcknd.gov" target="_blank" rel="noopener">Visit Bismarck</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Policies</h5>
+          <ul>
+            <li><a href="#">Check-in: 3:00 PM</a></li>
+            <li><a href="#">Check-out: 11:00 AM</a></li>
+            <li><a href="#">Pet Policy</a></li>
+            <li><a href="#">Cancellation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span class="foot-copy">© 2024 Days Inn by Wyndham · Bismarck, ND. A Wyndham Hotels &amp; Resorts Property.</span>
+        <div class="foot-soc">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">TripAdvisor</a>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /landingPg -->
+
+
+  <!-- ══════════════════════════════════════════════════
+       DETAIL PAGE
+  ══════════════════════════════════════════════════ -->
+  <div class="pg detail-pg" id="detailPg">
+
+    <button class="d-back" onclick="goHome()">← Back to Home</button>
+
+    <div class="d-hero">
+      <div class="d-hero-bg" id="dBg"></div>
+      <div class="d-hero-inner">
+        <div class="d-tag">Days Inn by Wyndham · Bismarck, North Dakota</div>
+        <h1 class="d-title">Property <em>Details</em></h1>
+        <div class="d-meta-bar">
+          <div class="d-meta-item"><strong>1300 E Capitol Ave</strong> · Address</div>
+          <div class="d-meta-item"><strong>100+ Rooms</strong> · Capacity</div>
+          <div class="d-meta-item"><strong>4.1 ★</strong> · Guest Rating</div>
+          <div class="d-meta-item"><strong>Wyndham</strong> · Brand</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-body">
+
+      <!-- MAIN CONTENT -->
+      <div class="d-main">
+
+        <section>
+          <div class="d-sec-label">Overview</div>
+          <div class="d-sec-title">About Days Inn Bismarck</div>
+          <p>Days Inn by Wyndham Bismarck is a full-service economy hotel conveniently located at 1300 East Capitol Avenue, Bismarck, North Dakota. Situated within easy reach of Interstate 94, the property offers guests a clean, comfortable base for exploring the state capital.</p>
+          <p>The hotel is part of the globally recognised Days Inn brand — a member of the Wyndham Hotels &amp; Resorts family — and participates in the Wyndham Rewards loyalty programme, allowing guests to earn and redeem points on every stay.</p>
+          <p>Bismarck is North Dakota's state capital and second-largest city, home to the North Dakota State Capitol building, the Missouri River, and a vibrant local dining and arts scene. The hotel's central location puts all of these within minutes.</p>
+        </section>
+
+        <section>
+          <div class="d-sec-label">Rooms &amp; Suites</div>
+          <div class="d-sec-title">Choose Your Room</div>
+          <div class="d-rooms">
+            <div class="d-room-card">
+              <div class="ri"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80" alt="Standard King" loading="lazy"></div>
+              <div class="rb">
+                <div class="d-room-cat">Standard</div>
+                <div class="d-room-name">Standard King Room</div>
+                <div class="d-room-price">From $89 / night · 1 King Bed</div>
+              </div>
+            </div>
+            <div class="d-room-card">
+              <div class="ri"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500&q=80" alt="Double Queen" loading="lazy"></div>
+              <div class="rb">
+                <div class="d-room-cat">Family</div>
+                <div class="d-room-name">Double Queen Room</div>
+                <div class="d-room-price">From $99 / night · 2 Queen Beds</div>
+              </div>
+            </div>
+            <div class="d-room-card">
+              <div class="ri"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500&q=80" alt="King Suite" loading="lazy"></div>
+              <div class="rb">
+                <div class="d-room-cat">Suite</div>
+                <div class="d-room-name">Deluxe King Suite</div>
+                <div class="d-room-price">From $129 / night · Suite with Sitting Area</div>
+              </div>
+            </div>
+            <div class="d-room-card">
+              <div class="ri"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80" alt="Accessible Room" loading="lazy"></div>
+              <div class="rb">
+                <div class="d-room-cat">Accessible</div>
+                <div class="d-room-name">ADA Accessible Room</div>
+                <div class="d-room-price">From $89 / night · Roll-in Shower Available</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="d-sec-label">Facilities</div>
+          <div class="d-sec-title">Amenities &amp; Services</div>
+          <div class="d-amen-grid">
+            <div class="d-amen-item">Free Hot Breakfast Daily</div>
+            <div class="d-amen-item">Complimentary Wi-Fi</div>
+            <div class="d-amen-item">Outdoor Seasonal Pool</div>
+            <div class="d-amen-item">Free On-Site Parking</div>
+            <div class="d-amen-item">24-Hour Front Desk</div>
+            <div class="d-amen-item">Business Center</div>
+            <div class="d-amen-item">Vending &amp; Ice Machines</div>
+            <div class="d-amen-item">Pet Friendly Rooms</div>
+            <div class="d-amen-item">ADA Accessible Rooms</div>
+            <div class="d-amen-item">In-Room Microwave &amp; Fridge</div>
+            <div class="d-amen-item">Flat-Screen TV in All Rooms</div>
+            <div class="d-amen-item">Wyndham Rewards Programme</div>
+            <div class="d-amen-item">Laundry Facilities</div>
+            <div class="d-amen-item">Truck &amp; RV Parking</div>
+            <div class="d-amen-item">Non-Smoking Rooms</div>
+            <div class="d-amen-item">Hair Dryer &amp; Iron/Board</div>
+          </div>
+        </section>
+
+        <section>
+          <div class="d-sec-label">Policies</div>
+          <div class="d-sec-title">Check-in &amp; Policies</div>
+          <p><strong style="color:var(--ink);">Check-in:</strong> 3:00 PM &nbsp;|&nbsp; <strong style="color:var(--ink);">Check-out:</strong> 11:00 AM</p>
+          <p>Pets are welcome with a small nightly fee — please mention at time of booking. All rooms are non-smoking; smoking areas are designated outside. Cancellation policies vary by rate type — please review at booking on the Wyndham platform for your specific reservation's terms.</p>
+          <p>Government-issued photo ID and a valid credit or debit card are required at check-in. Minimum age for check-in is 18 years old. Incidental hold applies and is released within 3 business days of check-out.</p>
+        </section>
+
+        <section>
+          <div class="d-sec-label">Photo Gallery</div>
+          <div class="d-sec-title">Property Images</div>
+          <div class="d-gallery">
+            <div class="d-gimg"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=85" alt="Hotel Exterior" loading="lazy"></div>
+            <div class="d-gimg"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80" alt="Guest Room" loading="lazy"></div>
+            <div class="d-gimg"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80" alt="Lobby" loading="lazy"></div>
+            <div class="d-gimg"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500&q=80" alt="Bedroom" loading="lazy"></div>
+          </div>
+        </section>
+
+      </div><!-- /d-main -->
+
+      <!-- SIDEBAR -->
+      <div class="d-sidebar">
+
+        <!-- Reserve card -->
+        <div class="d-info-card">
+          <div class="dic-eyebrow">Ready to Book?</div>
+          <div class="dic-title">Reserve via<br>Wyndham</div>
+          <p class="dic-body">Rates, availability, and Wyndham Rewards points are all managed through the official Wyndham booking platform. Click below for the best available rate.</p>
+          <a
+            href="https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview"
+            target="_blank" rel="noopener"
+            class="dic-btn-primary"
           >
-          <div class="foot-soc">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">TripAdvisor</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" style="width:13px;height:13px;flex-shrink:0"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            Book on Wyndham.com
+          </a>
+          <a href="tel:+17012239151" class="dic-btn-secondary">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" style="width:12px;height:12px;flex-shrink:0"><path d="M3 3h3l1.5 3.5-2 1.2a8 8 0 003.8 3.8l1.2-2L14 11v3a1 1 0 01-1 1C6.4 15 1 9.6 1 4a1 1 0 011-1z"/></svg>
+            Call (701) 223-9151
+          </a>
+          <div class="dic-perks">
+            <div class="dic-perk">✓ Best rate on Wyndham.com</div>
+            <div class="dic-perk">✓ Free hot breakfast included</div>
+            <div class="dic-perk">✓ Free cancellation available</div>
+            <div class="dic-perk">✓ Earn Wyndham Rewards points</div>
+            <div class="dic-perk">✓ Free parking — no hidden fees</div>
           </div>
         </div>
-      </footer>
-    </div>
-    <!-- /landingPg -->
 
-    <!-- ═══════════════════════ DETAIL PAGE ═══════════════════════ -->
-    <div class="pg detail-pg" id="detailPg">
-      <button class="d-back" onclick="goHome()">← Back to Home</button>
-
-      <div class="d-hero">
-        <div class="d-hero-bg" id="dBg"></div>
-        <div class="d-hero-inner">
-          <div class="d-tag">Days Inn by Wyndham · Bismarck, North Dakota</div>
-          <h1 class="d-title">Property <em>Details</em></h1>
-          <div class="d-meta-bar">
-            <div class="d-meta-item">
-              <strong>1300 E Capitol Ave</strong> · Address
-            </div>
-            <div class="d-meta-item">
-              <strong>100+ Rooms</strong> · Capacity
-            </div>
-            <div class="d-meta-item"><strong>4.1 ★</strong> · Guest Rating</div>
-            <div class="d-meta-item"><strong>Wyndham</strong> · Brand</div>
+        <!-- Quick info card -->
+        <div class="d-info-card d-info-card--plain" style="margin-top:1rem;">
+          <div class="dic-eyebrow">Quick Info</div>
+          <div class="dic-quick-list">
+            <div class="dic-quick-item"><span class="dqi-label">Check-in</span><span class="dqi-val">3:00 PM</span></div>
+            <div class="dic-quick-item"><span class="dqi-label">Check-out</span><span class="dqi-val">11:00 AM</span></div>
+            <div class="dic-quick-item"><span class="dqi-label">From</span><span class="dqi-val">$89 / night</span></div>
+            <div class="dic-quick-item"><span class="dqi-label">Rating</span><span class="dqi-val">4.1 ★</span></div>
+            <div class="dic-quick-item"><span class="dqi-label">Pets</span><span class="dqi-val">Welcome</span></div>
+            <div class="dic-quick-item"><span class="dqi-label">Parking</span><span class="dqi-val">Free</span></div>
           </div>
         </div>
-      </div>
 
-      <div class="d-body">
-        <!-- MAIN -->
-        <div class="d-main">
-          <section>
-            <div class="d-sec-label">Overview</div>
-            <div class="d-sec-title">About Days Inn Bismarck</div>
-            <p>
-              Days Inn by Wyndham Bismarck is a full-service economy hotel
-              conveniently located at 1300 East Capitol Avenue, Bismarck, North
-              Dakota. Situated within easy reach of Interstate 94, the property
-              offers guests a clean, comfortable base for exploring the state
-              capital.
-            </p>
-            <p>
-              The hotel is part of the globally recognised Days Inn brand — a
-              member of the Wyndham Hotels & Resorts family — and participates
-              in the Wyndham Rewards loyalty programme, allowing guests to earn
-              and redeem points on every stay.
-            </p>
-            <p>
-              Bismarck is North Dakota's state capital and second-largest city,
-              home to the North Dakota State Capitol building, the Missouri
-              River, and a vibrant local dining and arts scene. The hotel's
-              central location puts all of these within minutes.
-            </p>
-          </section>
+      </div><!-- /d-sidebar -->
 
-          <section>
-            <div class="d-sec-label">Rooms & Suites</div>
-            <div class="d-sec-title">Choose Your Room</div>
-            <div class="d-rooms">
-              <div class="d-room-card">
-                <div class="ri">
-                  <img
-                    src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80"
-                    alt="Standard King"
-                  />
-                </div>
-                <div class="rb">
-                  <div class="d-room-cat">Standard</div>
-                  <div class="d-room-name">Standard King Room</div>
-                  <div class="d-room-price">From $89 / night · 1 King Bed</div>
-                </div>
-              </div>
-              <div class="d-room-card">
-                <div class="ri">
-                  <img
-                    src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500&q=80"
-                    alt="Double Queen"
-                  />
-                </div>
-                <div class="rb">
-                  <div class="d-room-cat">Family</div>
-                  <div class="d-room-name">Double Queen Room</div>
-                  <div class="d-room-price">
-                    From $99 / night · 2 Queen Beds
-                  </div>
-                </div>
-              </div>
-              <div class="d-room-card">
-                <div class="ri">
-                  <img
-                    src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500&q=80"
-                    alt="King Suite"
-                  />
-                </div>
-                <div class="rb">
-                  <div class="d-room-cat">Suite</div>
-                  <div class="d-room-name">Deluxe King Suite</div>
-                  <div class="d-room-price">
-                    From $129 / night · Suite with Sitting Area
-                  </div>
-                </div>
-              </div>
-              <div class="d-room-card">
-                <div class="ri">
-                  <img
-                    src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80"
-                    alt="Accessible Room"
-                  />
-                </div>
-                <div class="rb">
-                  <div class="d-room-cat">Accessible</div>
-                  <div class="d-room-name">ADA Accessible Room</div>
-                  <div class="d-room-price">
-                    From $89 / night · Roll-in Shower Available
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+    </div><!-- /d-body -->
 
-          <section>
-            <div class="d-sec-label">Facilities</div>
-            <div class="d-sec-title">Amenities &amp; Services</div>
-            <div class="d-amen-grid">
-              <div class="d-amen-item">Free Hot Breakfast Daily</div>
-              <div class="d-amen-item">Complimentary Wi-Fi</div>
-              <div class="d-amen-item">Indoor Seasonal Pool</div>
-              <div class="d-amen-item">Free On-Site Parking</div>
-              <div class="d-amen-item">24-Hour Front Desk</div>
-              <div class="d-amen-item">EV Charging</div>
-              <div class="d-amen-item">Vending & Ice Machines</div>
-              <div class="d-amen-item">Pet Friendly Rooms</div>
-              <div class="d-amen-item">ADA Accessible Rooms</div>
-              <div class="d-amen-item">In-Room Microwave & Fridge</div>
-              <div class="d-amen-item">Flat-Screen TV in All Rooms</div>
-              <div class="d-amen-item">Wyndham Rewards Programme</div>
-              <div class="d-amen-item">Laundry Facilities</div>
-              <div class="d-amen-item">Truck & RV Parking</div>
-              <div class="d-amen-item">Non-Smoking Rooms</div>
-              <div class="d-amen-item">Hair Dryer & Iron/Board</div>
-            </div>
-          </section>
+  </div><!-- /detailPg -->
 
-          <section>
-            <div class="d-sec-label">Policies</div>
-            <div class="d-sec-title">Check-in &amp; Policies</div>
-            <p>
-              <strong style="color: var(--ink)">Check-in:</strong> 3:00 PM
-              &nbsp;|&nbsp;
-              <strong style="color: var(--ink)">Check-out:</strong> 11:00 AM
-            </p>
-            <p>
-              Pets are welcome with a small nightly fee — please mention at time
-              of booking. All rooms are non-smoking; smoking areas are
-              designated outside. Cancellation policies vary by rate type —
-              please review at booking on the Wyndham platform for your specific
-              reservation's terms.
-            </p>
-            <p>
-              Government-issued photo ID and a valid credit or debit card are
-              required at check-in. Minimum age for check-in is 18 years old.
-              Incidental hold applies and is released within 3 business days of
-              check-out.
-            </p>
-          </section>
+  <script src="main.js"></script>
 
-          <section>
-            <div class="d-sec-label">Photo Gallery</div>
-            <div class="d-sec-title">Property Images</div>
-            <div class="d-gallery">
-              <div class="d-gimg">
-                <img
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=85"
-                  alt="Hotel Exterior"
-                />
-              </div>
-              <div class="d-gimg">
-                <img
-                  src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80"
-                  alt="Guest Room"
-                />
-              </div>
-              <div class="d-gimg">
-                <img
-                  src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80"
-                  alt="Lobby"
-                />
-              </div>
-              <div class="d-gimg">
-                <img
-                  src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500&q=80"
-                  alt="Bedroom"
-                />
-              </div>
-            </div>
-          </section>
-        </div>
-        <!-- /d-main -->
-
-        <!-- SIDEBAR -->
-        <div class="d-sidebar">
-          <div class="book-card">
-            <div class="bc-h">Days Inn Bismarck</div>
-            <div class="bc-price">
-              <sup>$</sup>89 <small>/ night from</small>
-            </div>
-            <div class="bc-div"></div>
-            <div class="bc-field">
-              <label>Check-in</label><input type="date" id="bcIn" />
-            </div>
-            <div class="bc-field">
-              <label>Check-out</label><input type="date" id="bcOut" />
-            </div>
-            <div class="bc-field">
-              <label>Guests</label>
-              <select>
-                <option>1 Guest</option>
-                <option selected>2 Guests</option>
-                <option>3 Guests</option>
-                <option>4+ Guests</option>
-              </select>
-            </div>
-            <div class="bc-field">
-              <label>Room Type</label>
-              <select>
-                <option>Standard King — $89/night</option>
-                <option>Double Queen — $99/night</option>
-                <option>Deluxe Suite — $129/night</option>
-                <option>ADA Accessible — $89/night</option>
-              </select>
-            </div>
-            <button
-              class="bc-btn-main"
-              onclick="
-                window.open(
-                  'https://www.wyndhamhotels.com/days-inn/bismarck-north-dakota/days-inn-bismarck/overview',
-                  '_blank',
-                )
-              "
-            >
-              <svg
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                style="width: 13px; height: 13px"
-              >
-                <path d="M2 8h12M9 3l5 5-5 5" />
-              </svg>
-              Reserve on Wyndham
-            </button>
-            <button
-              class="bc-btn-sec"
-              onclick="window.location.href = 'tel:+17012239151'"
-            >
-              Call (701) 223-9151
-            </button>
-            <div class="bc-perks">
-              <div class="bc-perk">Free hot breakfast included</div>
-              <div class="bc-perk">Free cancellation available</div>
-              <div class="bc-perk">Wyndham Rewards points earned</div>
-              <div class="bc-perk">Free parking — no hidden fees</div>
-            </div>
-            <p class="bc-note">Best rate guaranteed on Wyndham.com</p>
-          </div>
-        </div>
-      </div>
-      <!-- /d-body -->
-    </div>
-    <!-- /detailPg -->
-
-
-    <script src="script.js"></script>
-
-    <!-- <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-      /* ── LOADER ── */
-      window.addEventListener("load", () => {
-        const tl = gsap.timeline();
-        tl.to("#ldLogo", {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: "power3.out",
-        })
-          .to(
-            "#ldFill",
-            { width: "100%", duration: 1.6, ease: "power2.inOut" },
-            "-=0.3",
-          )
-          .to("#loader", {
-            yPercent: -100,
-            duration: 0.85,
-            ease: "power3.inOut",
-            delay: 0.2,
-            onComplete() {
-              document.getElementById("loader").style.display = "none";
-              initHero();
-              initScroll();
-            },
-          });
-      });
-
-      /* ── HERO ENTRANCE ── */
-      function initHero() {
-        gsap.to("#hBadge", {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: 0.05,
-          ease: "power3.out",
-        });
-        gsap.to("#hTitle", {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          delay: 0.22,
-          ease: "power3.out",
-        });
-        gsap.to("#hSub", {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: 0.4,
-          ease: "power3.out",
-        });
-        gsap.to("#hBtns", {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: 0.56,
-          ease: "power3.out",
-        });
-        gsap.to("#hScroll", {
-          opacity: 1,
-          duration: 0.7,
-          delay: 0.9,
-          ease: "power2.out",
-        });
-        // fact items
-        gsap.to(".fact-item", {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.08,
-          delay: 0.7,
-          ease: "power3.out",
-        });
-      }
-
-      /* ── SCROLL ANIMATIONS ── */
-      function initScroll() {
-        ScrollTrigger.getAll().forEach((t) => t.kill());
-
-        // hero BG parallax
-        gsap.to("#heroBg", {
-          yPercent: 22,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-        // parallax band
-        gsap.to("#parBg", {
-          yPercent: 25,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#parSec",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-
-        // generic reveals
-        gsap.utils.toArray(".reveal").forEach((el) => {
-          gsap.to(el, {
-            opacity: 1,
-            y: 0,
-            duration: 0.85,
-            ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 90%", once: true },
-          });
-        });
-        gsap.utils.toArray(".reveal-l").forEach((el) => {
-          gsap.to(el, {
-            opacity: 1,
-            x: 0,
-            duration: 0.85,
-            ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 88%", once: true },
-          });
-        });
-        gsap.utils.toArray(".reveal-r").forEach((el) => {
-          gsap.to(el, {
-            opacity: 1,
-            x: 0,
-            duration: 0.85,
-            ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 88%", once: true },
-          });
-        });
-        gsap.utils.toArray(".reveal-sc").forEach((el, i) => {
-          gsap.to(el, {
-            opacity: 1,
-            scale: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 88%", once: true },
-            delay: i * 0.07,
-          });
-        });
-      }
-
-      /* ── NAV ── */
-      const nav = document.getElementById("mainNav");
-      function updateNav() {
-        const inHero = window.scrollY < window.innerHeight * 0.8;
-        nav.classList.toggle("light", !inHero);
-      }
-      window.addEventListener("scroll", updateNav, { passive: true });
-      updateNav();
-
-      /* ── HAMBURGER ── */
-      const ham = document.getElementById("navHam");
-      const mob = document.getElementById("mobMenu");
-      ham.addEventListener("click", () => {
-        ham.classList.toggle("open");
-        mob.classList.toggle("open");
-      });
-      function closeMenu() {
-        ham.classList.remove("open");
-        mob.classList.remove("open");
-      }
-
-      /* ── SMOOTH SCROLL helper ── */
-      function navScrollTo(id) {
-        closeMenu();
-        // If detail page is active, go home first, then scroll after transition
-        const landingActive = document
-          .getElementById("landingPg")
-          .classList.contains("active");
-        if (!landingActive) {
-          // switch to landing page
-          document.getElementById("detailPg").classList.remove("active");
-          document.getElementById("landingPg").classList.add("active");
-          window.scrollTo({ top: 0 });
-          setTimeout(() => {
-            const el = document.getElementById(id);
-            if (el) el.scrollIntoView({ behavior: "smooth" });
-            initScroll();
-            updateNav();
-          }, 100);
-          return;
-        }
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }
-
-      /* ── PAGE TRANSITIONS ── */
-      function goHome() {
-        closeMenu();
-        gsap.to("#detailPg", {
-          opacity: 0,
-          y: 16,
-          duration: 0.38,
-          ease: "power2.in",
-          onComplete() {
-            document.getElementById("detailPg").classList.remove("active");
-            document.getElementById("landingPg").classList.add("active");
-            window.scrollTo({ top: 0 });
-            gsap.fromTo(
-              "#landingPg",
-              { opacity: 0 },
-              { opacity: 1, duration: 0.5, ease: "power2.out" },
-            );
-            setTimeout(initScroll, 80);
-            updateNav();
-          },
-        });
-      }
-
-      function openDetail() {
-        // set hero bg
-        document.getElementById("dBg").style.backgroundImage =
-          "url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=2200&q=90')";
-
-        // set default dates
-        const t = new Date(),
-          t2 = new Date();
-        t2.setDate(t.getDate() + 2);
-        document.getElementById("bcIn").value = t.toISOString().split("T")[0];
-        document.getElementById("bcOut").value = t2.toISOString().split("T")[0];
-
-        gsap.to("#landingPg", {
-          opacity: 0,
-          y: -12,
-          duration: 0.38,
-          ease: "power2.in",
-          onComplete() {
-            document.getElementById("landingPg").classList.remove("active");
-            document.getElementById("detailPg").classList.add("active");
-            window.scrollTo({ top: 0 });
-            nav.classList.remove("light");
-            gsap.fromTo(
-              "#detailPg",
-              { opacity: 0, y: 16 },
-              { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" },
-            );
-
-            // detail hero parallax
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-            gsap.to("#dBg", {
-              yPercent: 18,
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".d-hero",
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-              },
-            });
-          },
-        });
-      }
-    </script> -->
-  </body>
+</body>
 </html>
